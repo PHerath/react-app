@@ -3,7 +3,7 @@ import React from 'react';
 var Person = (props) => {
     return (
         <div>
-            <p>i am {props.name}.i am {props.age}.</p>
+            <p onClick={props.click}>i am {props.name}.i am {props.age}.</p>
             <p>{props.children}</p>
         </div>
     )
