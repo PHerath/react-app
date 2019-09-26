@@ -66,3 +66,43 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+JavaScript ES6 features
+    Export & import
+        Default export
+            Import person from “./person.js”
+            Import prs from “./person.js”
+        Named export
+            Import {smth} from “./utility.js”
+            Import {smth as Smith} from “./utility.js”
+            Import * as bundle from “./utility.js”
+    Calsses methods properties
+    ES6
+        Class Person{
+            constructor(){
+                This.name = “name”;
+            }
+
+            printName(){
+                console.log(this.name);
+            }
+        }
+        ES7
+        Class Person{
+            name = “name”;
+
+            printName = () => {
+                console.log(this.name);
+            }
+        }
+    Spread & Rest Operators
+    Spread
+    Used to split up array element or object properties
+    Const newArray = [ ...oldArray, 2,3 ]
+    Const newObject = { ...oldObj, newProperty: “property” }
+
+    Rest
+        Used to merge a list of function argument in to array
+            Function sortArgs(...args){
+                return args.sort()
+            }
