@@ -7,6 +7,14 @@ import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component{
 
+    render(){
+        return(
+            <div>
+                <UserInput></UserInput>
+            </div>
+        )
+    }
+
 }
 
 export default App;
