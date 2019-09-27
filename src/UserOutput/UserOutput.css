@@ -1,18 +1,8 @@
-.UserInput{
+.UserOutput{
     width: 60%;
     margin: auto;
     border: 1px solid #eeeeee;
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
-}
-
-input{
-    width: 75%;
-    height: 20px;
-    position: relative;
-}
-
-h1{
-    color: rgb(9, 11, 109);
 }
