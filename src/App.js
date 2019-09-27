@@ -19,7 +19,8 @@ class App extends Component{
         name: "salu",
         age: "35"
       }
-    ]
+    ],
+    showPersons: false
   };
 
   switchNameHandler = (newName) => {
@@ -44,6 +45,11 @@ class App extends Component{
     )
   };
 
+  togglePersonHandler = () => {
+      const doesShow = this.state.showPersons;
+      this.setState({showPersons: !doesShow})
+  };
+
   nameChangedHandler = (event) => {
     this.setState(
       {
@@ -63,7 +69,7 @@ class App extends Component{
         ]
       }
     )
-  }
+  };
 
   render(){
     const style = {
@@ -77,23 +83,27 @@ class App extends Component{
       <div className="App">
       <h1>Hello world</h1>
       <p>first react app</p>
-      <button style = {style} onClick = {( ) => this.switchNameHandler("Maxmillion") }>Switch Person</button>
-      <Person
-      name = { this.state.persons[0].name }
-      age = { this.state.persons[0].age }
-      change = { this.nameChangedHandler }
-      />
-      <Person
-      name = { this.state.persons[1].name }
-      age = { this.state.persons[1].age }
-      click = { this.switchNameHandler.bind(this, "max!") }
-      change = { this.nameChangedHandler }>
-      Children Property
-      </Person>
-      <Person
-      name = { this.state.persons[2].name }
-      age = { this.state.persons[2].age }
-      />
+      <button style = {style} onClick = {this.togglePersonHandler}>Switch Person</button>
+      {
+          this.state.showPersons === true ? <div>
+          <Person
+          name = { this.state.persons[0].name }
+          age = { this.state.persons[0].age }
+          change = { this.nameChangedHandler }
+          />
+          <Person
+          name = { this.state.persons[1].name }
+          age = { this.state.persons[1].age }
+          click = { this.switchNameHandler.bind(this, "max!") }
+          change = { this.nameChangedHandler }>
+          Children Property
+          </Person>
+          <Person
+          name = { this.state.persons[2].name }
+          age = { this.state.persons[2].age }
+          />
+        </div> : null
+      }
     </div>
     )
   }
