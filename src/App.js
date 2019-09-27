@@ -46,7 +46,9 @@ class App extends Component{
   };
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    //const persons = this.state.persons; this is danger use as does not copy object and reference to direct object
+    //const persons = this.state.persons.slice(); this is old way copy an object
+    const persons = [...this.state.persons]; // this is modern way copy an object
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
   }
