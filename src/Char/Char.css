@@ -1,7 +1,7 @@
 .Char{
-    width: 30%;
-    margin: auto;
-    border: 1px solid #eeeeee;
+    display: inline-block;
+    margin: 16px;
+    border: 1px solid #131111;
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;

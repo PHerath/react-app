@@ -43,7 +43,8 @@ class App extends Component{
   handleText = (event) => {
     const val = event.target.value;
     const charArray = val.replace(" ", "").split("");
-    const chars = charArray.map( chr => {
+    let count = 0;
+    const chars = charArray.map( (chr, count) => {
       return {
         value: chr,
         key: null
@@ -97,16 +98,12 @@ class App extends Component{
 
     if(this.state.showLetters){
       characters = (
-        <div>
-          {
             this.state.letters.map(chr => {
               console.log(chr)
               return (
-                <Char char = {chr.value}></Char>
+                <Char char = {chr.value} key = {chr.key}></Char>
               )
             })
-          }
-        </div>
       )
     };
 
