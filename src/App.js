@@ -40,18 +40,31 @@ class App extends Component{
 //       persons[personIndex] = person;
 //       this.setState({persons: persons});
 //   };
-  handleTextLength = (event) => {
-    const val = event.target.value
-    const charArray = val.replace(" ", "").split("")
+  handleText = (event) => {
+    const val = event.target.value;
+    const charArray = val.replace(" ", "").split("");
+    const chars = charArray.map( chr => {
+      return {
+        value: chr,
+        key: null
+      }
+    })
+    const len = charArray.length;
+    console.log(charArray)
+    let showLet = false;
+
+    if(len > 0){
+      showLet = true
+    }
 
     this.setState({
-      letters: charArray,
-      length: charArray.length
+      letters: chars,
+      length: charArray.length,
+      showLetters: showLet
     })
   }
-  render(){
 
-    let characters = null;
+  render(){
     // const style = {
     //   backgroundColor: 'gray',
     //   font: 'inherit',
@@ -80,25 +93,28 @@ class App extends Component{
     //     )
     // };
 
+    let characters = null;
+
     if(this.state.showLetters){
       characters = (
         <div>
           {
-            this.state.charArray.map(chr => {
+            this.state.letters.map(chr => {
+              console.log(chr)
               return (
-                <Char char = {chr}></Char>
+                <Char char = {chr.value}></Char>
               )
             })
           }
         </div>
       )
-    }
+    };
 
     return (
       <div className="App">
       <h1>Hello world</h1>
       <p>first react app</p>
-      <input type = "text" onChange = {this.handleTextLength}></input>
+      <input type = "text" onChange = {this.handleText}></input>
       <Validate length = {this.state.length}></Validate>
       {characters}
     </div>

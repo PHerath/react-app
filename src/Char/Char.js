@@ -1,7 +1,13 @@
 import React from 'react';
+import './Char.css';
 
-const Char = () => {
-
+const Char = (props) => {
+    return (
+        <div className = "Char">
+            <p>{props.children}</p>
+            <p>{props.char}</p>
+        </div>
+    )
 }
 
 export default Char;
