@@ -8,42 +8,45 @@ class App extends Component{
   state = {
     persons: [
       {
-        name: "max",
-        age: "24"
+          id: "adaf1",
+          name: "max",
+          age: "24"
       },
       {
-        name: "manu",
-        age: "27"
+          id: "iuybfuwu2",
+          name: "manu",
+          age: "27"
       },
       {
-        name: "salu",
-        age: "35"
+          id: "qnbvu3",
+          name: "salu",
+          age: "35"
       }
     ],
     showPersons: false
   };
 
-  switchNameHandler = (newName) => {
+//   switchNameHandler = (newName) => {
 
-    this.setState(
-      {
-        persons: [
-          {
-            name: newName,
-            age: "24"
-          },
-          {
-            name: "manu",
-            age: "27"
-          },
-          {
-            name: "pathum herath",
-            age: "35"
-          }
-        ]
-      }
-    )
-  };
+//     this.setState(
+//       {
+//         persons: [
+//           {
+//             name: newName,
+//             age: "24"
+//           },
+//           {
+//             name: "manu",
+//             age: "27"
+//           },
+//           {
+//             name: "pathum herath",
+//             age: "35"
+//           }
+//         ]
+//       }
+//     )
+//   };
 
   deletePersonHandler = (personIndex) => {
     //const persons = this.state.persons; this is danger use as does not copy object and reference to direct object
@@ -58,25 +61,20 @@ class App extends Component{
       this.setState({showPersons: !doesShow})
   };
 
-  nameChangedHandler = (event) => {
-    this.setState(
-      {
-        persons: [
-          {
-            name: event.target.value,
-            age: "24"
-          },
-          {
-            name: event.target.value,
-            age: "27"
-          },
-          {
-            name: "pathum herath",
-            age: "35"
-          }
-        ]
+  nameChangedHandler = (event, id) => {
+      const personIndex = this.state.persons.findIndex(per => {
+          return per.id === id;
+      });
+      //let person = Object.assign({}, this.state.persons[personIndex]); this is old way
+
+      //modern way
+      let person = {
+          ...this.state.persons[personIndex]
       }
-    )
+      person.name = event.target.value;
+      const persons = this.state.persons;
+      persons[personIndex] = person;
+      this.setState({persons: persons});
   };
 
   render(){
@@ -98,7 +96,10 @@ class App extends Component{
                         return <Person
                         click = {() => this.deletePersonHandler(index)}
                         name = {person.name}
-                        age = {person.age}/>
+                        age = {person.age}
+                        key = {person.id}
+                        changed = {(event) => this.nameChangedHandler(event, person.id)}
+                        />
                     })
                 }
         </div>
