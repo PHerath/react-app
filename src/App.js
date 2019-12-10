@@ -1,9 +1,22 @@
 import React from 'react';
 import { Component } from 'react';
+import styled from 'styled-components';
 // import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
+const StyledButton = styled.button`
+    background-color: ${props => props.alt ? 'red' : 'green'};
+    color: white;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: ${props => props.alt ? 'darkorange' : 'teal'};
+      color: white;
+    }
+`;
 class App extends Component{
   state = {
     persons: [
@@ -78,19 +91,18 @@ class App extends Component{
   };
 
   render(){
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'white'
-      }
-    }
-
+    // const style = {
+    //   backgroundColor: 'green',
+    //   color: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color: 'white'
+    //   }
+    // }
     let persons = null;
 
     if(this.state.showPersons){
@@ -109,10 +121,10 @@ class App extends Component{
                 }
         </div>
         )
-        style[':hover'] = {
-          backgroundColor: 'salmon',
-          color: 'blue'
-        };
+        // style[':hover'] = {
+        //   backgroundColor: 'salmon',
+        //   color: 'blue'
+        // };
     };
     let classes = [];
     if(this.state.persons.length <= 2){
@@ -125,7 +137,7 @@ class App extends Component{
       <div className="App">
       <h1>Hello world</h1>
       <p className={classes.join(' ')}>first react app</p>
-      <button style = {style} onClick = {this.togglePersonHandler}>Switch Person</button>
+      <StyledButton alt={this.state.showPersons} onClick = {this.togglePersonHandler}>Switch Person</StyledButton>
       {persons}
     </div>
     )
