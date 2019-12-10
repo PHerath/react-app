@@ -9,6 +9,20 @@
 .bold{
   font-weight: bold;
 }
+
+.button {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: teal;
+  color: white;
+}
 /*
 .App-logo {
   height: 40vmin;

@@ -1,22 +1,22 @@
 import React from 'react';
 import { Component } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
-const StyledButton = styled.button`
-    background-color: ${props => props.alt ? 'red' : 'green'};
-    color: white;
-    font: inherit;
-    border: 1px solid blue;
-    padding: 8px;
-    cursor: pointer;
-    &:hover {
-      background-color: ${props => props.alt ? 'darkorange' : 'teal'};
-      color: white;
-    }
-`;
+// const StyledButton = styled.button`
+//     background-color: ${props => props.alt ? 'red' : 'green'};
+//     color: white;
+//     font: inherit;
+//     border: 1px solid blue;
+//     padding: 8px;
+//     cursor: pointer;
+//     &:hover {
+//       background-color: ${props => props.alt ? 'darkorange' : 'teal'};
+//       color: white;
+//     }
+// `;
 class App extends Component{
   state = {
     persons: [
@@ -137,7 +137,7 @@ class App extends Component{
       <div className="App">
       <h1>Hello world</h1>
       <p className={classes.join(' ')}>first react app</p>
-      <StyledButton alt={this.state.showPersons} onClick = {this.togglePersonHandler}>Switch Person</StyledButton>
+      <button className="button" onClick = {this.togglePersonHandler}>Switch Person</button>
       {persons}
     </div>
     )
